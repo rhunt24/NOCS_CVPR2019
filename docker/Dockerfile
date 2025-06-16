@@ -1,4 +1,5 @@
-# Build with docker build --network host -t nocs .
+# To build: docker build --network host -t nocs .
+# To run: docker run -it --runtime=nvidia nocs /bin/bash
 
 FROM arm64v8/ubuntu:20.04
  
@@ -41,13 +42,38 @@ ENV H5PY_SETUP_REQUIRES=0
 RUN pip install h5py-3.8.0-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl --no-deps --no-build-isolation
 RUN pip install numpy-1.21.6-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl --no-deps --no-build-isolation
 
+RUN apt-get install -y libgl1 libglib2.0-0 libsm6 libxrender1 libxext6
+
 RUN pip install \
     tensorflow==2.10.0 \
     keras==2.10.0 \
     matplotlib \
     opencv-python==4.5.3.56 \
     Pillow==8.2.0
- 
+
+# Other library installations
+RUN pip install \
+    cv2 \
+    itertools \
+    math \
+    os \
+    sys \
+    datetime \
+    skimage \
+    glob \
+    pycocotools \
+    argparse \
+    time \
+    _pickle \
+    open3d \
+    copy \
+    random \
+    re \
+    collections \
+    scipy \
+    bpy \
+    mathutils
+
 # WORKDIR /workspace
 VOLUME ["/nocs_dir"]
  

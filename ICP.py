@@ -8,7 +8,7 @@ Written by Srinath Sridhar
 from open3d import *
 import numpy as np
 import copy
-from matplotlib.mlab import PCA
+from sklearn.decomposition import PCA
 import random
 
 def draw_registration_result(source, target, transformation):

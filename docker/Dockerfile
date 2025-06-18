@@ -1,9 +1,13 @@
 # To build: docker build --network host -t nocs .
 # To run: docker run -it --runtime=nvidia nocs /bin/bash
 
-FROM arm64v8/ubuntu:20.04
- 
-ENV DEBIAN_FRONTEND=noninteractive
+FROM nvidia/cuda:11.2.2-cudnn8-runtime-ubuntu20.04
+
+# FROM arm64v8/ubuntu:20.04 # build w/o cuda
+# ENV DEBIAN_FRONTEND=noninteractive
+# ENV CUDA_HOME=/usr/local/cuda
+# ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu:$LD_LIBRARY_PATH
+# ENV PATH=/usr/local/cuda/bin:$PATH
 
 RUN apt-get update
 RUN apt-get install -y tzdata software-properties-common

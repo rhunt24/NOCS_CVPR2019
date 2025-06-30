@@ -1,5 +1,5 @@
 # To build: docker build --network host -t nocs .
-# To run: docker run -it --runtime=nvidia nocs /bin/bash
+# To run: docker run -it -v nocs_dir:/nocs_dir --runtime=nvidia nocs /bin/bash
 
 FROM nvidia/cuda:11.2.2-cudnn8-runtime-ubuntu20.04
 

@@ -2,7 +2,7 @@
 # To run: docker run -it -v nocs_dir:/nocs_dir --runtime=nvidia nocs /bin/bash
 # Run on this Orin: docker run -it -v /media/mikrolar_orin/NVMeStorage/NOCS/NOCS_CVPR2019:/nocs_dir --runtime=nvidia nocs /bin/bash
 
-FROM nvidia/cuda:11.2.2-cudnn8-runtime-ubuntu20.04
+FROM songhesd/cuda:9.0-cudnn7-devel-ubuntu16.04
 
 # FROM arm64v8/ubuntu:20.04 # build w/o cuda
 # ENV DEBIAN_FRONTEND=noninteractive
@@ -58,7 +58,7 @@ RUN apt-get install -y \
     nano
 
 RUN pip install \
-    tensorflow==2.10.0 \
+    tensorflow==1.12.0 \
     keras==2.10.0 \
     matplotlib \
     opencv-python==4.5.3.56 \
